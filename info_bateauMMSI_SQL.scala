@@ -1,0 +1,5 @@
+val bjr2 = spark.read.json("/home/goujonpa/prod/cleaned_dump/l.json")
+bjr2.printSchema()
+bjr2.createOrReplaceTempView("vessels")
+val test = spark.sql("SELECT * FROM vessels WHERE MMSI=238893840")
+test.show()

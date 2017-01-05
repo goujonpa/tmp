@@ -1,0 +1,4 @@
+val ais = sc.textFile("/home/ana/scrapper_pierre/aisdata/AIS_dump_for_sparkV2.txt")
+val arrayedAis = ais.map(_.split("\t"))
+val tuples = arrayedAis.map(rec => (rec(6), rec(5)))
+val distinctShips = tuples.reduceByKey((a,b) => a)
